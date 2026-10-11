@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Compile all sketches
         uses: arduino/compile-sketches@v1
@@ -29,11 +29,3 @@ jobs:
           libraries: '[]'
           sketch-paths: |
             - ./
-          enable-warnings-report: true
-
-      - name: Save the compile report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: sketches-report
-          path: sketches-reports
